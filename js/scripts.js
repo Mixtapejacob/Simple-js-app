@@ -17,6 +17,24 @@ let pokemonRepository = (function () {
     },
   ];
 
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  function getAll() {
+      return pokemonList;
+    }
+
+  return {
+    add: add,
+    getAll: getAll
+    }
+})();
+
+console.log(pokemonRepository.getAll()); // []
+pokemonRepository.getAll().forEach(function (pokemon) {
+  // Use document.write and if statements to write the pokemon information exactly like we did before
+  })
   for (let i = 0; i < pokemonList.length; i++) {
     document.write(
       pokemonList[i].name + " (height:" + pokemonList[i].height + ")"
@@ -31,9 +49,45 @@ let pokemonRepository = (function () {
 
     document.write("<br>" + "<br>");
   }
-  pokemonList.forEach(function (pokemon) {
+
+  
+
+
+    // write the if statement to only check for pokemon that have a height above 3
+    if (pokemonList[i].height > 3) {
+      document.write(" - wow that's big!");
+    }
+    // use document.write to write two line breaks. You can add the line breaks together with the + operator like you've done above
+    // A line break is written with "<br>"" and will allow each pokemon to be on a new line.
+
+    document.write("<br>" + "<br>");
+
+  // pokemonList.forEach(function (pokemon) {
+  //   console.log(pokemon.name + "inside the function");
+  //   let bulletitem = document.querySelector(".pokemon-list");
+  //   let listItem = document.createElement('li')
+  //   let button = document.createElement('button')
+  //   button.innerText = pokemon.name
+  //   button.classList.add('custombutton'); 
+  //   listItem.appendChild(button);
+  //   bulletitem.appendChild(listItem)
+    
+
+  // });
+
+  function addListItem(pokemon) {
     console.log(pokemon.name + "inside the function");
-  });
+    let bulletitem = document.querySelector(".pokemon-list");
+    let listItem = document.createElement('li')
+    let button = document.createElement('button')
+    button.innerText = pokemon.name
+    button.classList.add('custombutton'); 
+    listItem.appendChild(button);
+    bulletitem.appendChild(listItem)
+    
+  }
+
+
 
 
 
@@ -68,9 +122,11 @@ let pokemonRepository = (function () {
   //     getAll: getAll
   //   };
 
-})();
+
+
 
 console.log(pokemonRepository.getAll()); // []
 pokemonRepository.getAll().forEach(function (pokemon) {
   console.log(pokemon.name)
+  pokemonRepository.addListItem(pokemon)
 });
