@@ -22,105 +22,95 @@ let pokemonRepository = (function () {
   }
 
   function getAll() {
-      return pokemonList;
-    }
+    return pokemonList;
+  }
 
   return {
     add: add,
     getAll: getAll
-    }
+  }
 })();
 
 console.log(pokemonRepository.getAll()); // []
 pokemonRepository.getAll().forEach(function (pokemon) {
   // Use document.write and if statements to write the pokemon information exactly like we did before
-  })
-  for (let i = 0; i < pokemonList.length; i++) {
-    document.write(
-      pokemonList[i].name + " (height:" + pokemonList[i].height + ")"
-    );
+})
 
-    // write the if statement to only check for pokemon that have a height above 3
-    if (pokemonList[i].height > 3) {
-      document.write(" - wow that's big!");
-    }
-    // use document.write to write two line breaks. You can add the line breaks together with the + operator like you've done above
-    // A line break is written with "<br>"" and will allow each pokemon to be on a new line.
+pokemonList.forEach(function (user) {
+  console.log(user.name + ' is ' + user.height + ' years old.');
+});
+document.write(
+  pokemonList[i].name + " (height:" + pokemonList[i].height + ")"
+);
 
-    document.write("<br>" + "<br>");
+// write the if statement to only check for pokemon that have a height above 3
+if (pokemonList[i].height > 3) {
+  document.write(" - wow that's big!");
+}
+// use document.write to write two line breaks. You can add the line breaks together with the + operator like you've done above
+// A line break is written with "<br>"" and will allow each pokemon to be on a new line.
+
+document.write("<br>" + "<br>");
+
+// pokemonList.forEach(function (pokemon) {
+//   console.log(pokemon.name + "inside the function");
+//   let bulletitem = document.querySelector(".pokemon-list");
+//   let listItem = document.createElement('li')
+//   let button = document.createElement('button')
+//   button.innerText = pokemon.name
+//   button.classList.add('custombutton'); 
+//   listItem.appendChild(button);
+//   bulletitem.appendChild(listItem)
+
+
+// });
+
+function addListItem(pokemon) {
+  console.log(pokemon.name + "inside the function");
+  let bulletitem = document.querySelector(".pokemon-list");
+  let listItem = document.createElement('li')
+  let button = document.createElement('button')
+  button.innerText = pokemon.name
+  button.classList.add('custombutton');
+  listItem.appendChild(button);
+  bulletitem.appendChild(listItem)
+
+}
+
+
+
+
+
+
+return {
+  add: function (pokemon) {
+    pokemonList.push(pokemon);
+  },
+  getAll: function () {
+    return pokemonList;
   }
-
-  
-
-
-    // write the if statement to only check for pokemon that have a height above 3
-    if (pokemonList[i].height > 3) {
-      document.write(" - wow that's big!");
-    }
-    // use document.write to write two line breaks. You can add the line breaks together with the + operator like you've done above
-    // A line break is written with "<br>"" and will allow each pokemon to be on a new line.
-
-    document.write("<br>" + "<br>");
-
-  // pokemonList.forEach(function (pokemon) {
-  //   console.log(pokemon.name + "inside the function");
-  //   let bulletitem = document.querySelector(".pokemon-list");
-  //   let listItem = document.createElement('li')
-  //   let button = document.createElement('button')
-  //   button.innerText = pokemon.name
-  //   button.classList.add('custombutton'); 
-  //   listItem.appendChild(button);
-  //   bulletitem.appendChild(listItem)
-    
-
-  // });
-
-  function addListItem(pokemon) {
-    console.log(pokemon.name + "inside the function");
-    let bulletitem = document.querySelector(".pokemon-list");
-    let listItem = document.createElement('li')
-    let button = document.createElement('button')
-    button.innerText = pokemon.name
-    button.classList.add('custombutton'); 
-    listItem.appendChild(button);
-    bulletitem.appendChild(listItem)
-    
-  }
+};
 
 
+// console.log(pokemonRepository1.getAll()); // []
+// pokemonRepository1.add({ name: 'Pikachu' });
+// console.log(pokemonRepository1.getAll()); // [ { name: 'Pikachu' } ]
 
+// let pokemonRepository = (function () {
+//   let pokemonList = [];
 
+//   function add(pokemon) {
+//     pokemonList.push(pokemon);
+//   }
 
+//   function getAll() {
+//     return pokemonList;
+//   }
 
-  return {
-    add: function (pokemon) {
-      pokemonList.push(pokemon);
-    },
-    getAll: function () {
-      return pokemonList;
-    }
-  };
-
-
-  // console.log(pokemonRepository1.getAll()); // []
-  // pokemonRepository1.add({ name: 'Pikachu' });
-  // console.log(pokemonRepository1.getAll()); // [ { name: 'Pikachu' } ]
-
-  // let pokemonRepository = (function () {
-  //   let pokemonList = [];
-
-  //   function add(pokemon) {
-  //     pokemonList.push(pokemon);
-  //   }
-
-  //   function getAll() {
-  //     return pokemonList;
-  //   }
-
-  //   return {
-  //     add: add,
-  //     getAll: getAll
-  //   };
+//   return {
+//     add: add,
+//     getAll: getAll
+//   };
 
 
 
