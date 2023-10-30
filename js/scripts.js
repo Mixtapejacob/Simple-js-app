@@ -29,7 +29,7 @@ let pokemonRepository = (function () {
     add: add,
     getAll: getAll
   }
-  
+
 })();
 
 
@@ -47,7 +47,7 @@ pokemonRepository.getAll().forEach(function (pokemon) {
   // A line break is written with "<br>"" and will allow each pokemon to be on a new line.
 
   document.write("<br>" + "<br>");
- 
+
 });
 
 // console.log(pokemonRepository.getAll()); // []
@@ -63,24 +63,39 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 //   let listItem = document.createElement('li')
 //   let button = document.createElement('button')
 //   button.innerText = pokemon.name
-//   button.classList.add('custombutton'); 
+//   button.classList.add('custombutton');
 //   listItem.appendChild(button);
 //   bulletitem.appendChild(listItem)
 
 
 // });
 
-// function addListItem(pokemon) {
-//   console.log(pokemon.name + "inside the function");
-//   let bulletitem = document.querySelector(".pokemon-list");
-//   let listItem = document.createElement('li')
-//   let button = document.createElement('button')
-//   button.innerText = pokemon.name
-//   button.classList.add('custombutton');
-//   listItem.appendChild(button);
-//   bulletitem.appendChild(listItem)
+function addListItem(pokemon) {
+  console.log(pokemon.name + "inside the function");
+  let bulletitem = document.querySelector(".pokemon-list");
+  let listItem = document.createElement('li')
+  let button = document.createElement('button')
+  button.innerText = pokemon.name
+  button.classList.add('custombutton');
+  listItem.appendChild(button);
+  bulletitem.appendChild(listItem)
 
-// }
+}
+
+function hideSurveyForm(event) {
+  let survey_form = document.querySelector('#survey_form');
+  let isFormHidden = survey_form.classList.contains('hidden');
+  if( !isFormHidden && event.key === 'Escape'){
+    survey_form.classList.add('hidden');
+  }
+}
+
+window.addEventListener('keydown', hideSurveyForm);
+
+let button = document.querySelector('button');
+button.addEventListener('click', function (event) {
+  console.log(event);
+});
 
 // return {
 //   add: function (pokemon) {
