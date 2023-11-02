@@ -27,17 +27,36 @@ let pokemonRepository = (function () {
 
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: (pokemon) => {
+    console.log(pokemon.name + "inside the function");
+    let bulletitem = document.querySelector(".pokemon-list");
+    let listItem = document.createElement('li')
+    let button = document.createElement('button')
+    button.innerText = pokemon.name
+    button.classList.add('custombutton');
+    listItem.appendChild(button);
+    bulletitem.appendChild(listItem)
+    button.addEventListener('click', function () {
+      console.log(pokemon);
+    });
+ 
   }
+}
+
+ 
+
+
 
 })();
 
 
 pokemonRepository.getAll().forEach(function (pokemon) {
   console.log(pokemon.name)
-  document.write(
-    pokemon.name + " (height:" + pokemon.height + ")"
-  );
+  button.addEventListener('click', function () {
+    console.log(pokemon);
+  });
+  
 
   // write the if statement to only check for pokemon that have a height above 3
   if (pokemon.height > 3) {
@@ -79,23 +98,13 @@ function addListItem(pokemon) {
   button.classList.add('custombutton');
   listItem.appendChild(button);
   bulletitem.appendChild(listItem)
+  button.addEventListener('click', function () {
+    console.log(pokemon);
+  });
 
 }
 
-function hideSurveyForm(event) {
-  let survey_form = document.querySelector('#survey_form');
-  let isFormHidden = survey_form.classList.contains('hidden');
-  if( !isFormHidden && event.key === 'Escape'){
-    survey_form.classList.add('hidden');
-  }
-}
 
-window.addEventListener('keydown', hideSurveyForm);
-
-let button = document.querySelector('button');
-button.addEventListener('click', function (event) {
-  console.log(event);
-});
 
 // return {
 //   add: function (pokemon) {
