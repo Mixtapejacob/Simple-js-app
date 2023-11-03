@@ -25,38 +25,40 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
+  function addListItem(pokemon) {
+    console.log(pokemon.name + "inside the function");
+    let bulletitem = document.querySelector(".pokemon-list");
+    let listItem = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("custombutton");
+    listItem.appendChild(button);
+    bulletitem.appendChild(listItem);
+    button.addEventListener("click", function () {
+      console.log(pokemon);
+    });
+  }
+
   return {
     add: add,
     getAll: getAll,
-    addListItem: (pokemon) => {
-    console.log(pokemon.name + "inside the function");
-    let bulletitem = document.querySelector(".pokemon-list");
-    let listItem = document.createElement('li')
-    let button = document.createElement('button')
-    button.innerText = pokemon.name
-    button.classList.add('custombutton');
-    listItem.appendChild(button);
-    bulletitem.appendChild(listItem)
-    button.addEventListener('click', function () {
-      console.log(pokemon);
-    });
- 
-  }
-}
-
- 
-
-
-
+    addListItem: addListItem,
+  };
 })();
-
-
 pokemonRepository.getAll().forEach(function (pokemon) {
-  console.log(pokemon.name)
-  button.addEventListener('click', function () {
-    console.log(pokemon);
-  });
-  
+  // Call the addListItem function and pass pokemon as an argument
+ addListItem(pokemon) ;
+
+});
+
+
+
+// pokemonRepository.getAll().forEach(function (pokemon) {
+//   document.write(pokemon.name)
+//   button.addEventListener('click', function () {
+//     document.write(pokemon);
+//   })});
+
 
   // write the if statement to only check for pokemon that have a height above 3
   if (pokemon.height > 3) {
@@ -67,76 +69,76 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 
   document.write("<br>" + "<br>");
 
-});
-
-// console.log(pokemonRepository.getAll()); // []
-// pokemonRepository.getAll().forEach(function (pokemon) {
-// Use document.write and if statements to write the pokemon information exactly like we did before
-// })
 
 
-
-// pokemonList.forEach(function (pokemon) {
-//   console.log(pokemon.name + "inside the function");
-//   let bulletitem = document.querySelector(".pokemon-list");
-//   let listItem = document.createElement('li')
-//   let button = document.createElement('button')
-//   button.innerText = pokemon.name
-//   button.classList.add('custombutton');
-//   listItem.appendChild(button);
-//   bulletitem.appendChild(listItem)
-
-
-// });
-
-function addListItem(pokemon) {
-  console.log(pokemon.name + "inside the function");
-  let bulletitem = document.querySelector(".pokemon-list");
-  let listItem = document.createElement('li')
-  let button = document.createElement('button')
-  button.innerText = pokemon.name
-  button.classList.add('custombutton');
-  listItem.appendChild(button);
-  bulletitem.appendChild(listItem)
-  button.addEventListener('click', function () {
-    console.log(pokemon);
-  });
-
-}
+  // console.log(pokemonRepository.getAll()); // []
+  // pokemonRepository.getAll().forEach(function (pokemon) {
+  // Use document.write and if statements to write the pokemon information exactly like we did before
+  // })
 
 
 
-// return {
-//   add: function (pokemon) {
-//     pokemonList.push(pokemon);
-//   },
-//   getAll: function () {
-//     return pokemonList;
-//   }
-// };
+  // pokemonList.forEach(function (pokemon) {
+  //   console.log(pokemon.name + "inside the function");
+  //   let bulletitem = document.querySelector(".pokemon-list");
+  //   let listItem = document.createElement('li')
+  //   let button = document.createElement('button')
+  //   button.innerText = pokemon.name
+  //   button.classList.add('custombutton');
+  //   listItem.appendChild(button);
+  //   bulletitem.appendChild(listItem)
 
 
-// console.log(pokemonRepository1.getAll()); // []
-// pokemonRepository1.add({ name: 'Pikachu' });
-// console.log(pokemonRepository1.getAll()); // [ { name: 'Pikachu' } ]
+  // });
 
-// let pokemonRepository = (function () {
-//   let pokemonList = [];
+  // function addListItem(pokemon) {
+  //   console.log(pokemon.name + "inside the function");
+  //   let bulletitem = document.querySelector(".pokemon-list");
+  //   let listItem = document.createElement('li')
+  //   let button = document.createElement('button')
+  //   button.innerText = pokemon.name
+  //   button.classList.add('custombutton');
+  //   listItem.appendChild(button);
+  //   bulletitem.appendChild(listItem)
+  //   button.addEventListener('click', function () {
+  //     console.log(pokemon);
+  //   });
 
-//   function add(pokemon) {
-//     pokemonList.push(pokemon);
-//   }
-
-//   function getAll() {
-//     return pokemonList;
-//   }
-
-//   return {
-//     add: add,
-//     getAll: getAll
-//   };
-
+  // }
 
 
 
-console.log(pokemonRepository.getAll()); // []
+  // return {
+  //   add: function (pokemon) {
+  //     pokemonList.push(pokemon);
+  //   },
+  //   getAll: function () {
+  //     return pokemonList;
+  //   }
+  // };
+
+
+  // console.log(pokemonRepository1.getAll()); // []
+  // pokemonRepository1.add({ name: 'Pikachu' });
+  // console.log(pokemonRepository1.getAll()); // [ { name: 'Pikachu' } ]
+
+  // let pokemonRepository = (function () {
+  //   let pokemonList = [];
+
+  //   function add(pokemon) {
+  //     pokemonList.push(pokemon);
+  //   }
+
+  //   function getAll() {
+  //     return pokemonList;
+  //   }
+
+  //   return {
+  //     add: add,
+  //     getAll: getAll
+  //   };
+
+
+
+
+  console.log(pokemonRepository.getAll()); // []
