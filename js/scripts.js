@@ -47,7 +47,7 @@ let pokemonRepository = (function () {
 })();
 pokemonRepository.getAll().forEach(function (pokemon) {
   // Call the addListItem function and pass pokemon as an argument
- addListItem(pokemon) ;
+  pokemonRepository.addListItem(pokemon)
 
 });
 
